@@ -1,0 +1,42 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiApp4.Pages"
+             x:Class="MauiApp4.Pages.Page2" Title="Vücut Kitle Endeksi">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="20" VerticalOptions="CenterAndExpand">
+            <!-- Başlık -->
+            <Label Text="Vücut Kitle Endeksi" FontSize="36" TextColor="#4CAF50" HorizontalOptions="Center" />
+
+            <!-- Kilo Girişi -->
+            <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                <Label Text="Kilo(kg):" FontSize="24" VerticalOptions="Center" />
+                <Entry x:Name="kiloEntry" Placeholder="Kilo bilgisi (kg)" Keyboard="Numeric" FontSize="24" />
+            </FlexLayout>
+            <Slider x:Name="kiloSlider" Minimum="10" Maximum="500" Value="60" ValueChanged="kilo_OnSliderValueChanged" />
+
+            <!-- Boy Girişi -->
+            <FlexLayout Direction="Row" JustifyContent="Start" AlignItems="Center">
+                <Label Text="Boy(cm):" FontSize="24" VerticalOptions="Center" />
+                <Entry x:Name="boyEntry" Placeholder="Boy bilgisi (cm)" Keyboard="Numeric" FontSize="24" />
+            </FlexLayout>
+            <Slider x:Name="boySlider" Minimum="40" Maximum="250" Value="180" ValueChanged="boy_OnSliderValueChanged" />
+
+            <!-- Hesapla Butonu -->
+            <Button Text="Endeks Hesapla" FontSize="20" BackgroundColor="#4CAF50" TextColor="White" Clicked="buttonClick" CornerRadius="10" Padding="10" />
+
+            <!-- Sonuçlar -->
+            <Label Text="Vücut Kitle Endeksi: " FontSize="24" HorizontalOptions="Center"/>
+            <Label x:Name="VKI" FontSize="24" HorizontalOptions="Center"/>
+
+            <!-- Hata Mesajı -->
+            <Label x:Name="hata" TextColor="Red" FontSize="18" HorizontalOptions="Center"/>
+
+            <!-- Kısa Mesaj -->
+            <Label x:Name="vkiKisaMesaj" TextColor="#888" FontSize="18" HorizontalOptions="Center"/>
+
+            <!-- Uzun Mesaj -->
+            <Label x:Name="vkiUzunMesaj" HorizontalOptions="Center"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiApp4.Pages"
+             x:Class="MauiApp4.Pages.Page5" Title="Kullanıcı Girişi"
+             BackgroundColor="#f5f5f5">
+
+    <StackLayout Padding="30" Spacing="20" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+        <!-- Hoşgeldiniz Başlık -->
+        <Label x:Name="welcomeLabel" Text="Hoşgeldiniz!" FontSize="32" TextColor="#4CAF50" HorizontalOptions="Center" FontAttributes="Bold" />
+
+        <!-- Giriş Yap Butonu -->
+        <Button x:Name="startButton" Text="Giriş Yap" Clicked="OnStartButtonClicked" BackgroundColor="#4CAF50" TextColor="White" HeightRequest="50"/>
+
+        <!-- Kullanıcı adı giriş alanı, başlangıçta gizli -->
+        <Frame x:Name="kullaniciFrame" BackgroundColor="AntiqueWhite" BorderColor="#4CAF50" CornerRadius="25" HasShadow="True" Margin="0,10" IsVisible="False">
+            <Entry x:Name="usernameEntry" Placeholder="Kullanıcı Adı" IsVisible="False" TextColor="Black" Margin="10"/>
+        </Frame>
+
+        <!-- Şifre giriş alanı, başlangıçta gizli -->
+        <Frame x:Name="sifreFrame" BackgroundColor="AntiqueWhite" BorderColor="#4CAF50" CornerRadius="25" HasShadow="True" Margin="0,10" IsVisible="False">
+            <Entry x:Name="passwordEntry" Placeholder="Şifre" IsPassword="True" IsVisible="False" TextColor="Black" Margin="10"/>
+        </Frame>
+
+        <!-- Login Butonu -->
+        <Button x:Name="loginButton" Text="Giriş Yap" Clicked="OnLoginButtonClicked" IsVisible="False" BackgroundColor="#4CAF50" TextColor="White" HeightRequest="50"/>
+
+        <!-- Hata mesajı -->
+        <Label x:Name="errorMessage" TextColor="Red" IsVisible="False" HorizontalOptions="Center" />
+
+        <!-- Başarı mesajı -->
+        <Label x:Name="successMessage" TextColor="Green" IsVisible="False" HorizontalOptions="Center" FontAttributes="Italic"/>
+
+        <!-- Anasayfaya dön butonu -->
+        <Button x:Name="backToMainButton" Text="Anasayfaya Dön" Clicked="OnBackToMainPageClicked" IsVisible="False" BackgroundColor="#FFC107" TextColor="White" HeightRequest="50"/>
+
+    </StackLayout>
+
+</ContentPage>

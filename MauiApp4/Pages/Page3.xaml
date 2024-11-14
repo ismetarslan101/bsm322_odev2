@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiApp4.Pages"
+             x:Class="MauiApp4.Pages.Page3" Title="Renk Seçici">
+
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="20">
+
+        <!-- Başlık Düzeni -->
+        <Label Text="Renk Seçici" FontSize="48" FontAttributes="Bold" TextColor="Orange" HorizontalOptions="Center"/>
+
+        <!-- Renk Tonları -->
+        <StackLayout Spacing="20" HorizontalOptions="Center">
+            <StackLayout HorizontalOptions="Center">
+                <Label Text="Kırmızı Ton" TextColor="Red" FontSize="20"/>
+                <Slider x:Name="kirmiziSlider" Minimum="0" Maximum="255" Value="60" ValueChanged="kirmizi_OnSliderValueChanged" ThumbColor="Red" WidthRequest="300"/>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="Center">
+                <Label Text="Yeşil Ton" TextColor="Green" FontSize="20"/>
+                <Slider x:Name="yesilSlider" Minimum="0" Maximum="255" Value="60" ValueChanged="yesil_OnSliderValueChanged" ThumbColor="Green" WidthRequest="300"/>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="Center">
+                <Label Text="Mavi Ton" TextColor="Blue" FontSize="20"/>
+                <Slider x:Name="maviSlider" Minimum="0" Maximum="250" Value="60" ValueChanged="mavi_OnSliderValueChanged" ThumbColor="Blue" WidthRequest="300"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!-- HEX Kodu Alanı -->
+        <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="Center" Margin="0,20,0,20">
+            <Label Text="HEX Kodu:" FontSize="24" VerticalOptions="Center"/>
+            <Entry x:Name="hexKod" Placeholder="Hex kodunu girin" Keyboard="Text" Text="" WidthRequest="200"/>
+            <Button Clicked="HexKoduBul" BackgroundColor="Cyan" Text="Bul" TextColor="DarkBlue" WidthRequest="100"/>
+        </FlexLayout>
+
+        <!-- Random Renk Oluşturma ve Kopyalama Düğmesi -->
+        <Button Text="Random Renk Oluştur" Clicked="RandomRenk" BackgroundColor="LightGray" TextColor="Black" HeightRequest="50" Margin="0,10" HorizontalOptions="Center" WidthRequest="250"/>
+
+        <Label Text=""/>
+
+        <!-- Renk Gösterimi -->
+        <Button x:Name="renkButton" Clicked="RenkKopyala" WidthRequest="300" HeightRequest="300" BackgroundColor="{Binding CurrentColor}" BorderColor="Black" BorderWidth="2" HorizontalOptions="Center"/>
+    </StackLayout>
+
+</ContentPage>

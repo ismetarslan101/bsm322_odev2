@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiApp4.Pages"
+             x:Class="MauiApp4.Pages.Page4" Title="Notlar">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <!-- Başlık ve Not Ekleme Butonu -->
+            <Label Text="Yapılacaklar Listesi" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   TextColor="DarkSlateGray" 
+                   HorizontalOptions="Center" />
+
+            <Button Text="Yeni Not Ekle"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    FontSize="16"
+                    Padding="15"
+                    CornerRadius="10"
+                    Clicked="OnYeniNotEkleClicked"
+                    HorizontalOptions="FillAndExpand"/>
+
+            <!-- Not Listesi -->
+            <ListView x:Name="notlarListView"
+                      ItemsSource="{Binding Notlar}"
+                      SelectionMode="None"
+                      SeparatorColor="LightGray">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="15" Margin="5" HasShadow="True" BorderColor="#D3D3D3" CornerRadius="10">
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+
+                                    <!-- Tamamlama Kutusu -->
+                                    <CheckBox IsChecked="{Binding IsCompleted}" 
+                                              Color="Teal" 
+                                              VerticalOptions="Center" />
+
+                                    <!-- Not Metni -->
+                                    <Label Text="{Binding NotText}"
+                                           FontSize="18"
+                                           TextColor="Black"
+                                           VerticalOptions="Center"
+                                           LineBreakMode="TailTruncation"
+                                           HorizontalOptions="StartAndExpand">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label"
+                                                         Binding="{Binding IsCompleted}"
+                                                         Value="True">
+                                                <Setter Property="TextColor" Value="Gray"/>
+                                                <Setter Property="TextDecorations" Value="Strikethrough"/>
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+
+                                    <!-- Düzenle Butonu -->
+                                    <Button Text="Düzenle"
+                                            BackgroundColor="#FF9800"
+                                            TextColor="White"
+                                            CornerRadius="5"
+                                            Padding="10,5"
+                                            CommandParameter="{Binding .}"
+                                            Clicked="OnNotDuzenleClicked"
+                                            HorizontalOptions="End"/>
+
+                                    <!-- Silme Butonu -->
+                                    <Button Text="Sil"
+                                            BackgroundColor="Firebrick"
+                                            TextColor="White"
+                                            CornerRadius="5"
+                                            Padding="10,5"
+                                            CommandParameter="{Binding .}"
+                                            Clicked="OnNotSilClicked"
+                                            HorizontalOptions="End"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

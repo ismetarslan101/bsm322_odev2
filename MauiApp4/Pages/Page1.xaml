@@ -1,0 +1,104 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp4.Pages.Page1" Title="Kredi Hesapla"
+             BackgroundColor="#f5f5f5">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextColor" Value="#333"/>
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="#333"/>
+            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="Margin" Value="0,5"/>
+            <Setter Property="HeightRequest" Value="40"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#0078D4"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="Margin" Value="0,10"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <Label Text="Kredi Hesaplama" FontSize="36" TextColor="#FF5722" HorizontalOptions="Center"/>
+
+            <Frame CornerRadius="10" Padding="15" BackgroundColor="White" HasShadow="True">
+                <StackLayout Spacing="10">
+                    <Entry x:Name="oranEntry" Placeholder="Faiz oranı giriniz" Keyboard="Numeric"/>
+                    <Entry x:Name="vadeEntry" Placeholder="Vade (Ay) giriniz" Keyboard="Numeric"/>
+                    <Entry x:Name="tutarEntry" Placeholder="Tutar giriniz" Keyboard="Numeric"/>
+                </StackLayout>
+            </Frame>
+
+            <Label Text="Vade Değeri:" FontSize="20" FontAttributes="Bold" TextColor="#0078D4"/>
+            <Slider x:Name="mySlider" Minimum="0" Maximum="120" Value="12" ValueChanged="OnSliderValueChanged" />
+
+            <Button x:Name="button" Text="Hesapla" Clicked="buttonClick" />
+
+            <!-- İhtiyaç Kredisi -->
+            <Label Text="İhtiyaç Kredisi" FontSize="24" FontAttributes="Bold" TextColor="#4CAF50" HorizontalOptions="Center"/>
+            <Frame CornerRadius="10" Padding="10" BackgroundColor="#E8F5E9">
+                <StackLayout>
+                    <Label Text="Aylık Faiz:"/>
+                    <Label x:Name="ihtiyacBrutFaiz"/>
+                    <Label Text="Aylık Taksit:"/>
+                    <Label x:Name="ihtiyacTaksit"/>
+                    <Label Text="Toplam Tutar:"/>
+                    <Label x:Name="ihtiyacToplam"/>
+                    <Label Text="Ödenen Faiz:"/>
+                    <Label x:Name="ihtiyacOdenenFaiz"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Konut Kredisi -->
+            <Label Text="Konut Kredisi" FontSize="24" FontAttributes="Bold" TextColor="#2196F3" HorizontalOptions="Center"/>
+            <Frame CornerRadius="10" Padding="10" BackgroundColor="#E3F2FD">
+                <StackLayout>
+                    <Label Text="Aylık Faiz:"/>
+                    <Label x:Name="konutBrutFaiz"/>
+                    <Label Text="Aylık Taksit:"/>
+                    <Label x:Name="konutTaksit"/>
+                    <Label Text="Toplam Tutar:"/>
+                    <Label x:Name="konutToplam"/>
+                    <Label Text="Ödenen Faiz:"/>
+                    <Label x:Name="konutOdenenFaiz"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Taşıt Kredisi -->
+            <Label Text="Taşıt Kredisi" FontSize="24" FontAttributes="Bold" TextColor="#FFC107" HorizontalOptions="Center"/>
+            <Frame CornerRadius="10" Padding="10" BackgroundColor="#FFF8E1">
+                <StackLayout>
+                    <Label Text="Aylık Faiz:"/>
+                    <Label x:Name="tasitBrutFaiz"/>
+                    <Label Text="Aylık Taksit:"/>
+                    <Label x:Name="tasitTaksit"/>
+                    <Label Text="Toplam Tutar:"/>
+                    <Label x:Name="tasitToplam"/>
+                    <Label Text="Ödenen Faiz:"/>
+                    <Label x:Name="tasitOdenenFaiz"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Ticari Kredisi -->
+            <Label Text="Ticari Kredisi" FontSize="24" FontAttributes="Bold" TextColor="#FF9800" HorizontalOptions="Center"/>
+            <Frame CornerRadius="10" Padding="10" BackgroundColor="#FFF3E0">
+                <StackLayout>
+                    <Label Text="Aylık Faiz:"/>
+                    <Label x:Name="ticariBrutFaiz"/>
+                    <Label Text="Aylık Taksit:"/>
+                    <Label x:Name="ticariTaksit"/>
+                    <Label Text="Toplam Tutar:"/>
+                    <Label x:Name="ticariToplam"/>
+                    <Label Text="Ödenen Faiz:"/>
+                    <Label x:Name="ticariOdenenFaiz"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
